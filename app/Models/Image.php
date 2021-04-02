@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
+
+    // Relacion porlimofica
+
+    public function imageable(){
+        return $this->morphTo();
+    }
+
 }
