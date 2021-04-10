@@ -7,7 +7,21 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div class="card">
+        <div class="card-body">
+         {!! Form::open(['route' => 'admin.tags.store']) !!}
+            <div class="form-group">
+                {!! Form::label('name', 'Nombre: ') !!}
+                {!! Form::text('name', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese el nombre de la etiqueta']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('slug', 'Slug: ') !!}
+                {!! Form::text('slug', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese el slug de la etiqueta', 'readonly']) !!}
+            </div>
+         {!! Form::close() !!}
+        </div>
+    </div>
 @stop
 
 @section('css')
@@ -15,5 +29,15 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
-@stop
+    <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+
+    <script>
+        $(document).ready( function() {
+            $("#name").stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+    </script>
+@endsection
