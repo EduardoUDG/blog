@@ -244,11 +244,13 @@ return [
             'text' => 'Categorías',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
+            'active'=>['admin/categories*']
         ],
         [
             'text' => 'Etiquetas',
             'route'  => 'admin.tags.index',
             'icon' => 'far fa-fw fa-bookmark',
+            'active'=>['admin/tags*']
         ],
         [
             'text'    => 'multilevel',
