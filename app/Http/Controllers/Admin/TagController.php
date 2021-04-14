@@ -27,7 +27,16 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('admin.tags.create');
+        $colors =[
+            'red'=>'color rojo',
+            'yellow'=>'Color amarillo',
+            'green'=>'Color verde',
+            'blue'=>'Color azul',
+            'indigo'=>'Color indigo',
+            'purple'=>'Color morado',
+            'pink'=>'Color rosa'
+        ];
+        return view('admin.tags.create', compact('colors'));
     }
 
     /**
@@ -38,7 +47,15 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+            'name'=>'required',
+            'slug'=>'required|unique:tags',
+            'color'=>'required',
+      ]);
+
+      $tag = Tag::create($request->all());
+
+      return redirect()->route('admin.tags.edit',compact('tag'));
     }
 
     /**
@@ -60,7 +77,17 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        return view('admin.tags.edit', compact('tag'));
+        $colors =[
+            'red'=>'color rojo',
+            'yellow'=>'Color amarillo',
+            'green'=>'Color verde',
+            'blue'=>'Color azul',
+            'indigo'=>'Color indigo',
+            'purple'=>'Color morado',
+            'pink'=>'Color rosa'
+        ];
+
+        return view('admin.tags.edit', compact('tag','colors'));
     }
 
     /**
