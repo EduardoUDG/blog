@@ -16,11 +16,11 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Eduardo Chavez Dorado',
-            'email' => 'eduardo323232@gmail.com',
+            'email' => 'eduardo@gmail.com',
             'password' => bcrypt('12345678')
         ]);
-        
 
-        User::factory(99)->create();
+
+        User::factory(9)->create();
     }
 }
