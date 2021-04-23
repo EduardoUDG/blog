@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route'=>'admin.posts.store', 'autocomplete' => 'off']) !!}
+            {!! Form::open(['route'=>'admin.posts.store', 'autocomplete' => 'off', 'files'=> true]) !!}
 
                 {!! Form::hidden('user_id', auth()->user()->id) !!}
 
@@ -88,8 +88,13 @@
                     <div class="col">
                         <div class="form-group">
                             {!! Form::label('file','Imagen que se mostrará en post')!!}
-                            {!! Form::file('file', ['class'=>'form-control-file'])!!}
+                            {!! Form::file('file', ['class'=>'form-control-file', 'accept'=>'image/*'])!!}
                         </div>
+
+                        @error('file')
+                            <span class="text-danger">{{$message}}
+                                </span>
+                        @enderror
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, corporis quis dolorem exercitationem dolor libero dolores repellat sint rerum autem cum deleniti voluptates repudiandae. Natus eveniet hic temporibus autem debitis.</p>
                     </div>
                     <div></div>
