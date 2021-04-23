@@ -82,7 +82,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         <div class="image-wrapper">
-                            <img src="https://cdn.pixabay.com/photo/2021/04/20/20/55/marguerite-6194888__340.jpg" alt="">
+                            <img id="picture" src="https://cdn.pixabay.com/photo/2021/04/20/20/55/marguerite-6194888__340.jpg" alt="">
                         </div>
                     </div>
                     <div class="col">
@@ -164,5 +164,22 @@
         .catch( error => {
             console.error( error );
         } );
+
+        //Cambiar imagenes
+
+	//Cambiar imagen
+        document.getElementById("file").addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event){
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById("picture").setAttribute('src', event.target.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+
     </script>
 @endsection
