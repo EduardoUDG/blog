@@ -81,7 +81,7 @@
 
                 <div class="row mb-3">
                     <div class="col">
-                        {{--<div class="image-wrapper">--}}
+                        <div class="image-wrapper">
                             <img src="https://cdn.pixabay.com/photo/2021/04/20/20/55/marguerite-6194888__340.jpg" alt="">
                         </div>
                     </div>
@@ -124,7 +124,7 @@
 @stop
 
 @section('css')
-    {{-- Contenido relacionado
+
     <style>
         .image-wrapper {
             position: relative;
@@ -134,10 +134,10 @@
         .image-wrapper img{
             position: absolute;
             object-fit:cover;
-            width: 100%;
-            height: 100%;
+            width: 80%;
+            height: 80%;
         }
-    </style>--}}
+    </style>
 @stop
 
 @section('js')
