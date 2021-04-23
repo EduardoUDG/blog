@@ -79,6 +79,22 @@
                 </div>
 
 
+                <div class="row mb-3">
+                    <div class="col">
+                        {{--<div class="image-wrapper">--}}
+                            <img src="https://cdn.pixabay.com/photo/2021/04/20/20/55/marguerite-6194888__340.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            {!! Form::label('file','Imagen que se mostrará en post')!!}
+                            {!! Form::file('file', ['class'=>'form-control-file'])!!}
+                        </div>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, corporis quis dolorem exercitationem dolor libero dolores repellat sint rerum autem cum deleniti voluptates repudiandae. Natus eveniet hic temporibus autem debitis.</p>
+                    </div>
+                    <div></div>
+                </div>
+
 
                 <div class="form-group">
                     {!! Form::label('extract', 'Extracto') !!}
@@ -108,7 +124,20 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    {{-- Contenido relacionado
+    <style>
+        .image-wrapper {
+            position: relative;
+            padding-bottom: 56.25%
+        }
+
+        .image-wrapper img{
+            position: absolute;
+            object-fit:cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>--}}
 @stop
 
 @section('js')

@@ -1,7 +1,9 @@
 @props(['post'])
 
 <article class="mb-8 bg-white shadow-lg rounded-lg overflow-hidden">
+    @if($post->image)
     <img class="w-full h-72 object-cover object-center" src="{{url('storage/'.$post->image->url)}}" alt="">
+    @else<img class="w-full h-72 object-cover object-center" src="https://cdn.pixabay.com/photo/2021/04/20/20/55/marguerite-6194888__340.jpg" alt="">
 
     <div class="px-6 py-4">
         <h1 class="font-bold text-xl mb-2">
@@ -9,7 +11,7 @@
         </h1>
 
         <div class="text-gray-700 text-base">
-            {{$post->extract}}
+            {!!$post->extract!!}
         </div>
     </div>
 
