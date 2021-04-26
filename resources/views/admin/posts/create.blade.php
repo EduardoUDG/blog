@@ -37,10 +37,11 @@
                 <div class="form-group">
                     {!! Form::label('category_id','Categoria') !!}
                     {!! Form::select('category_id', $categories, null, ['class'=>'form-control']) !!}
-                </div>
-                @error('category_id')
+                    @error('category_id')
                         <small class="text-danger">{{ $message }}</small>
-                @enderror
+                    @enderror
+                </div>
+
 
 
 
