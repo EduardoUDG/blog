@@ -28,17 +28,17 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name'      => 'required',
-            'slug'      => 'required|unique:posts',
-            'status'    => 'required|in:1,2'
+            'name' => 'required',
+            'slug' => 'required|unique:posts',
+            'status' => 'required|in:1,2'
         ];
 
         if($this->status == 2){
             $rules = array_merge($rules, [
-                'cateogry_id'   => 'required',
-                'tags'          => 'required',
-                'extract'       => 'required',
-                'body'          => 'required'
+                'category_id' => 'required',
+                'tags' => 'required',
+                'extract' => 'required',
+                'body' => 'required'
             ]);
         }
 
