@@ -14,10 +14,11 @@
                     @if ($post->image)
                         <img class="w-full h-80 object-cover object-center " src="{{url('storage/'.$post->image->url)}}" alt="">
                     @else
-                    <img class="w-full h-80 object-cover object-center " src="https://cdn.pixabay.com/photo/2021/04/20/20/55/marguerite-6194888__340.jpg" alt="">
+                        <img class="w-full h-80 object-cover object-center " src="https://cdn.pixabay.com/photo/2021/04/20/20/55/marguerite-6194888_960_720.jpg" alt="">
+                    @endif
                 </figure>
                 <div class="text-base text-gray-500 mt-4">
-                    {{$post->body}}
+                    {!!$post->body!!}
                 </div>
 
             </div>
@@ -30,12 +31,11 @@
                     @foreach ($similares as $similar)
                         <li class="mb-4">
                             <a class="flex" href="{{route('posts.show', $similar)}}">
-
-                                @if($similar->image)
+                                @if ($similar->image)
                                     <img class="w-40 h-25 object-cover object-center" src="{{url('storage/'.$similar->image->url)}}" alt="">
                                 @else
-                                <img class="w-40 h-25 object-cover object-center" src="https://cdn.pixabay.com/photo/2021/04/20/20/55/marguerite-6194888__340.jpg" alt="">
-
+                                    <img class="w-40 h-25 object-cover object-center" src="https://cdn.pixabay.com/photo/2021/04/20/20/55/marguerite-6194888_960_720.jpg" alt="">
+                                @endif
                                 <span class="ml-2 text-gray-600">{{$similar->name}}</span>
                             </li>
 
