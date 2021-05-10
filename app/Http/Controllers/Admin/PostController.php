@@ -88,6 +88,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+
+        $this->authorize('author', $post);
+
+
         $categories = Category::pluck('name', 'id');
         $tags = Tag::all();
 
@@ -103,6 +107,8 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
+        $this->authorize('author', $post);
+
         $post->update($request->all());
 
         if ($request->file('file')) {
@@ -121,7 +127,7 @@ class PostController extends Controller
         }
 
         if ($request->tags) {
-            $post->tags()->attach($request->tags);
+            $post->tags()->sync($request->tags);
         }
 
         return redirect()->route('admin.posts.edit', $post)->with('info', 'el post se actualizo con exito');
@@ -135,6 +141,11 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+
+        $this->authorize('author', $post);
+
+        $post->delete();
+
+        return redirect()->route('admin.posts.index', $post)->with('info', 'el post se ha eliminado con exito');
     }
 }
