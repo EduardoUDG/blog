@@ -11,7 +11,7 @@ class PostPolicy
     use HandlesAuthorization;
 
     public function author(User $user, Post $post){
-        if($user->id == $post->user->id){
+        if($user->id == $post->user_id){
            return true;
         }else{
             return false;
