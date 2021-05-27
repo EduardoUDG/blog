@@ -24,7 +24,7 @@
 
         {{-- Crear nueva categoría --}}
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped table-responsive-sm table-hover">
                 {{-- Cabecera de la tabla --}}
                 <thead>
                     <tr>
